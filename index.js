@@ -13,7 +13,7 @@ async function main() {
     console.log(dbConnection);
 };
 
-function startPromt()
+
 inquirer
     .prompt([
         {
@@ -52,4 +52,3 @@ inquirer
         }
     ]);
 
-startPromt();

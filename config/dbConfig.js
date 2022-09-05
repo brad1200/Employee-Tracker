@@ -21,3 +21,11 @@ async function connect() {
 }
 
 module.exports = connect
+
+// const connection = mysql.createConnection({
+//     host: DB_HOST,
+//     user: DB_USER,
+//     password: DB_PASSWORD,
+//     database: DB_SCHEMA,
+//     port: DB_PORT
+// });
