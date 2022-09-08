@@ -1,4 +1,3 @@
-
 DROP DATABASE IF EXISTS employee_db;
 CREATE DATABASE employee_db;
 
@@ -31,4 +30,3 @@ CREATE TABLE employee (
     FOREIGN KEY (manager_id)
     REFERENCES  employee(id) ON DELETE SET NULL
 );
-
