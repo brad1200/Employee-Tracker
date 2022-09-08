@@ -13,42 +13,71 @@ async function main() {
     console.log(dbConnection);
 };
 
+function startPrompt() {
+    inquirer
+        .prompt([
+            {
+                type: 'list',
+                name: 'choices',
+                choices: [
+                    {
+                        name: 'View all departments',
+                        value: 'VIEW_ALL_DEPARTMENTS'
+                    },
+                    {
+                        name: 'View all roles',
+                        value: 'VIEW_ALL_ROLES'
+                    },
+                    {
+                        name: 'View all employees',
+                        value: 'VIEW_ALL_EMPLOYEES'
+                    },
+                    {
+                        name: 'Add a department',
+                        value: 'ADD_DEPARTMENT'
+                    },
+                    {
+                        name: 'Add a role',
+                        value: 'ADD_ROLE'
+                    },
+                    {
+                        name: 'Add an employee',
+                        value: 'ADD_EMPLOYEE'
+                    },
+                    {
+                        name: 'Update and employee role',
+                        value: 'UPDATE_EMPLOYEE_ROLE'
+                    }
+                ]
+            }
+        ]);
 
-inquirer
-    .prompt([
-        {
-            type: 'list',
-            name: 'choices',
-            choices: [
-                {
-                    name: 'View all departments',
-                    value: 'VIEW_ALL_DEPARTMENTS'
-                },
-                {
-                    name: 'View all roles',
-                    value: 'VIEW_ALL_ROLES'
-                },
-                {
-                    name: 'View all employees',
-                    value: 'VIEW_ALL_EMPLOYEES'
-                },
-                {
-                    name: 'Add a department',
-                    value: 'ADD_DEPARTMENT'
-                },
-                {
-                    name: 'Add a role',
-                    value: 'ADD_ROLE'
-                },
-                {
-                    name: 'Add an employee',
-                    value: 'ADD_EMPLOYEE'
-                },
-                {
-                    name: 'Update and employee role',
-                    value: 'UPDATE_EMPLOYEE_ROLE'
-                }
-            ]
-        }
-    ]);
+    function viewAllDepartments() {
+        db.query('SELECT * FROM department', function (err, results) {
+            if (err) {
+                console.log(err);
+            }
+            console.log(results);
+        });
+    }
 
+    function viewAllRoles() {
+        db.query('SELECT * FROM role', function (err, results) {
+            if (err) {
+                console.log(err);
+            }
+            console.log(results);
+        });
+    }
+
+    function viewAllEmployees() {
+        db.query('SELECT * FROM employee', function (err, results) {
+            if (err) {
+                console.log(err);
+            }
+            console.log(results);
+        });
+    }
+};
+
+startPrompt();
