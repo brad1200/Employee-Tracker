@@ -8,7 +8,7 @@ async function connect() {
             host: DB_HOST,
             port: DB_PORT,
             user: DB_USER,
-            DB_PASSWORD: DB_PASSWORD,
+            password: DB_PASSWORD,
             database: DB_SCHEMA
         });
 
@@ -22,10 +22,3 @@ async function connect() {
 
 module.exports = connect
 
-// const connection = mysql.createConnection({
-//     host: DB_HOST,
-//     user: DB_USER,
-//     password: DB_PASSWORD,
-//     database: DB_SCHEMA,
-//     port: DB_PORT
-// });
