@@ -50,34 +50,90 @@ function startPrompt() {
                     }
                 ]
             }
-        ]);
+        ]),
 
-    function viewAllDepartments() {
-        db.query('SELECT * FROM department', function (err, results) {
-            if (err) {
-                console.log(err);
-            }
-            console.log(results);
-        });
-    }
+        function viewAllDepartments() {
+            db.query('SELECT * FROM department', function (err, results) {
+                if (err) {
+                    console.log(err);
+                }
+                console.log(results);
+            });
+        },
 
-    function viewAllRoles() {
-        db.query('SELECT * FROM role', function (err, results) {
-            if (err) {
-                console.log(err);
-            }
-            console.log(results);
-        });
-    }
+        function viewAllRoles() {
+            db.query('SELECT * FROM role', function (err, results) {
+                if (err) {
+                    console.log(err);
+                }
+                console.log(results);
+            });
+        },
 
-    function viewAllEmployees() {
-        db.query('SELECT * FROM employee', function (err, results) {
-            if (err) {
-                console.log(err);
-            }
-            console.log(results);
-        });
-    }
-};
+        function viewAllEmployees() {
+            db.query('SELECT * FROM employee', function (err, results) {
+                if (err) {
+                    console.log(err);
+                }
+                console.log(results);
+            });
+        },
 
-startPrompt();
+        function addDepartments() {
+            inquirer
+                .prompt([
+                    {
+                        type: "input",
+                        name: "newDepartment",
+                        message: "What is the name of the department?",
+                    },
+                ]),
+        },
+
+        function addRole() {
+            inquirer
+                .prompt([
+                    {
+                        type: "input",
+                        name: "newName",
+                        message: "What is the new employee name?",
+                    },
+                    {
+                        type: "input",
+                        name: "salary",
+                        message: "What is the salary of this job?",
+                    },
+                    {
+                        type: "input",
+                        name: "department",
+                        message: "What department will this employee be in?",
+                    },
+                ]),
+        },
+
+        function addEmployee() {
+            inquirer
+                .prompt([
+                    {
+                        type: "input",
+                        name: "firstName",
+                        message: "What is the employee's first name?",
+                    },
+                    {
+                        type: "input",
+                        name: "slastName",
+                        message: "What is the employee's last name?",
+                    },
+                    {
+                        type: "input",
+                        name: "role",
+                        message: "What is the employee's role?",
+                    },
+                    {
+                        type: "input",
+                        name: "manager",
+                        message: "Who is the employee's manager?",
+                    },
+                ]),
+
+                startPrompt();
